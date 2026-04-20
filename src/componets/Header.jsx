@@ -1,11 +1,11 @@
 
 
 
-function Header() {
+function Header(props) {
+      
         return(
             <>
-            <h1>hello word!</h1>
-            <p>wlcome to my react App!</p>
+            <h1>Hello {props.name} ! You are {props.age} years old!</h1>
             </>
         )
      
