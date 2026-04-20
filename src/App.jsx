@@ -5,9 +5,11 @@ Header
 // class cpmponents
 class App extends React.Component{
  render() {
+    let name = "piu";
+    let age = 25;
       return(
         <>
-          <Header />
+          <Header name={name} age={age}/>
         </>
 
       )

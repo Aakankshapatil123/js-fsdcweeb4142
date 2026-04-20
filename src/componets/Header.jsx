@@ -3,10 +3,10 @@ import React from 'react';
 
 class Header extends React.Component {
      render() {
+        console.log(this.props)
         return(
             <>
-            <h1>hello word!</h1>
-            <p>wlcome to my react App!</p>
+            <h1>Hello {this.props.name}! You are {this.props.age} years old</h1>
             </>
         )
      }
