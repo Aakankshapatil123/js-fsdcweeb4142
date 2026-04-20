@@ -1,17 +1,16 @@
-import Header from "./components/Header";
+import React from "react";
 
-function App() {
- return (
-    <>
-       < Header />
-       {/* hero header */}
-       {/* companies section */}
-       {/* popular course secton */}
-       {/* testimonials section */}
-       {/* contact us section */}
-       {/* footer section */}
-    </>
- )
+
+// class cpmponents
+class App extends React.Component{
+ render() {
+      return(
+        <>
+          <h1>hello world</h1>
+        </>
+
+      )
+ }
 }
 
 export default App;
