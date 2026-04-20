@@ -1,12 +1,13 @@
 import React from "react";
-
+import Header from "./componets/Header";
+Header
 
 // class cpmponents
 class App extends React.Component{
  render() {
       return(
         <>
-          <h1>hello world</h1>
+          <Header />
         </>
 
       )
