@@ -1,14 +1,15 @@
+import { useState } from "react";
 
 const App = () => {
-  let Likes = 0;
+  const[likes, setLikes] = useState(0)
 
   const handleLike = () => {
-    like = like + 1; // like++
+    setLikes(likes + 1);
   }
 
   return(
     <>
-    <h1>Likes: {Likes}</h1>
+    <h1>Likes: {likes}</h1>
     <button onClick={handleLike}>Like</button>
     </>
   )
