@@ -1,19 +1,28 @@
-import React from "react";
-import Header from "./componets/Header";
-Header
+import React, { Component } from 'react'
 
-// class cpmponents
-class App extends React.Component{
- render() {
-    let name = "piu";
-    let age = 25;
-      return(
-        <>
-          <Header name={name} age={age}/>
-        </>
+export class App extends Component {
+  constructor(props){
+    super(props);
 
-      )
- }
+    this.state = {
+      like : 0
+    }
+  }
+
+  handleLike = () => {
+    this.setState({
+      likes: this.state.likes + 1
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Likes: {this.state.likes}</h1>
+        <button onClick={this.handleLike}></button>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
