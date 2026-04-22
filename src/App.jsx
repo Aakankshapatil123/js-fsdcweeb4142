@@ -1,12 +1,19 @@
 import Header from "./componets/Header";
 
-// class cpmponents
+// parent components
 function App(){
-  let name = "piu"
-  let age = 25;
+  
+  //1. create a function in the parrent component
+  //  to receive the dada from the child component
+  const receiveChildData=(name, age) => {
+    console.log(`Hello ${name}! you are ${age} years old!`);
+  }
+
+
+  // 2 pass the function receiveChildDta as props
       return(
         <>
-          <Header name={name} age={age}/>
+          <Header receiveChildData={receiveChildData} />
         </>
 
       )
