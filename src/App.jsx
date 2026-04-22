@@ -1,7 +1,16 @@
 
 const App = () => {
+  let Likes = 0;
+
+  const handleLike = () => {
+    like = like + 1; // like++
+  }
+
   return(
-    <div>App</div>
+    <>
+    <h1>Likes: {Likes}</h1>
+    <button onClick={handleLike}>Like</button>
+    </>
   )
 }
 
