@@ -18,13 +18,18 @@ const App = () => {
      setLike(likes + 1);
   }
 
+  const dislikeHandle = () => {
+    setLike(likes - 1);
+  }
+
   // when the like button is clicked, it will call likehandle function
   return (
     <>
-    <h1>Likes : {likes}</h1>
-    <button onClick={likeHandle}>Like</button>
+    <h1>Likes : {likes} </h1>
+    <button onClick={likeHandle}>Like</button> &nbsp;
+    <button onClick={dislikeHandle}>DisLike</button>
     </>
   )
 }
 
-export default App
+export default App;
