@@ -5,17 +5,27 @@ import { useState } from "react"
 
 const App = () => {
 
-  const[likes, setLike] = useState(0)
-  const[dislikes, setDislike] = useState(0);
+  const[reactions, setReaction] = useState({
+    likes : 0,
+    dislikes: 0
+  });
+  
 
   const likeHandle = () => {
-     setLike(likes + 1);
-  }
+     setReaction({
+      ...reactions,
+      likes: reactions.likes + 1
+  })
+  };
 
   const dislikeHandle = () => {
-    setDislike(dislikes + 1)
+    setReaction({
+      ...reactions,
+      dislikes : reactions.dislikes + 1
+    })
   }
 
+  console.log(reactions);
   // when the like button is clicked, it will call likehandle function
   return (
     <>
@@ -24,13 +34,13 @@ const App = () => {
     className="material-symbols-outlined">
     thumb_up
     </span> 
-    {likes}
+    {reactions.likes}
     </button> &nbsp;
     <button onClick={dislikeHandle}><span 
     className="material-symbols-outlined">
     thumb_down
     </span>
-    {dislikes}
+    {reactions.dislikes}
     </button>
     </>
   )
