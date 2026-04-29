@@ -12,6 +12,7 @@
    - Components are reusable piece of UI (User Interface)
    - User Interface means web pages in web applications or websites.
    - Components can be defined as one or more HTML elements, along with JavaScript code that defines their behavior.
+   
 2. **Virtual DOM**:
    - React uses a virtual DOM (Document Object Model) to optimize rendering.
    - When the state of a component changes, React updates the virtual DOM first and then efficiently updates the actual DOM to reflect those changes, minimizing performance issues.
@@ -64,7 +65,15 @@ Solution to Props Drilling:
 
 - To avoid props drilling, we can use state management libraries like Redux or Context API, which allow us to manage the state of our application in a centralized way and avoid passing props through multiple layers of components.
 
-## Hooks
+## React Hooks
+
+React hooks are introduced in React 16.8 (2019) to allow functional components to manage state and side effects.
+React hooks are functions that let you "hook into" React state and lifecycle features from function components.
+Some commonly used React hooks include:
+useState: Allows you to add state to functional components.
+useEffect: Allows you to perform side effects in functional components, such as fetching data or subscribing to events.
+useContext: Allows you to access the context in functional components, which is a way to share data between components without passing props down manually at every level.
+useRef: Allows you to create a mutable reference that persists across re-renders, which can be used to access DOM elements or store mutable values.
 
 - Initially, React only had class components, which by default had access to state and lifecycle methods. Class components were more complex and less intuitive for many developers, especially those new to React.
 - On the other hand, React also had functional components, which were simpler and easier to understand but did not have access to state or lifecycle methods. But the functional components are simple, easy to read and write, and they encourage a more functional programming style.
@@ -77,3 +86,5 @@ Solution to Props Drilling:
 
 - State is a built-in object in React that allows components to manage and store data that can change over time.
 - Unlike a normal data or props in a Component, state is mutable, which means that it can be updated and changed as needed. If there is a change in the state, React will re-render the component to reflect the updated state in the UI.
+
+
