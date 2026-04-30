@@ -1,17 +1,19 @@
-// uncontrolled component or uncontrolled form
-// we are not using react State to control the value of the input fields.
-const App = () => {
+// controlled component or controlled form
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log(event.target.email.value);
-    console.log(event.target.password.value)
-    console.log("from submitted.....");
-    console.log("Logging in with the following credentials");
-    // console.log(event.target.email.value);
-    // console.log(event.target.password.value);
+import { useState } from "react";
+
+// we are using react State to control the value of the input fields.
+const App = () => {
+  // 1. create a state for the input
+   const[email, steEmail] = useState("")
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    console.log("Logging in....");
+    console.log(email)
   }
 
+  // 2. assingning the sate as a value to the input field
   return (
     <>
     <h1>Login</h1>
@@ -21,6 +23,8 @@ const App = () => {
        name="email"
       type='email'
       placeholder='email...'
+      value={email}
+      onChange={(e) => steEmail(e.target.value)}
       />
      </div>
 
