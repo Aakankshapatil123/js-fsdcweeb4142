@@ -1,8 +1,8 @@
 // controlled component or controlled form
 
 import { useState } from "react";
+import './App.css';
 
-// we are using react State to control the value of the input fields.
 const App = () => {
   // 1. create a state for the input
    const[email, steEmail] = useState("");
@@ -22,11 +22,22 @@ const App = () => {
     event.target.email.focus();
   }
 
-  // 2. assingning the sate as a value to the input field
+  // const formStyle = {
+  //     display:"flex",
+  //     flexDirection: "column",
+  //     gap: 10,
+  //     border: "1px solid black",
+  //     padding: "32px"
+  // }
+
+  // inline style
   return (
     <>
-    <h1>Login</h1>
-    <form onSubmit={handleLogin}>
+    
+    <form onSubmit={handleLogin}
+    className="formLogin"
+    >
+     <h1>Login</h1>
      <div>
        <input
        name="email"
@@ -35,6 +46,10 @@ const App = () => {
       value={email}
       onChange={(e) => steEmail(e.target.value)}
       required
+      style={{
+        height: "30px",
+        paddingLeft: "16px"
+      }}
       />
      </div>
 
@@ -46,10 +61,17 @@ const App = () => {
       value={password}
       onChange={(e) => setPassword(e.target.value)}
       required
+       style={{
+        height: "30px",
+        paddingLeft: "16px"
+      }}
       />
      </div>
 
-     <button type="submit">
+     <button 
+     type="submit"
+     className="btnLogin"
+     >
       Login
      </button>
     </form>
