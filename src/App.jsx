@@ -1,7 +1,6 @@
 // controlled component or controlled form
 
 import { useState } from "react";
-import './App.css';
 
 const App = () => {
   // 1. create a state for the input
@@ -22,23 +21,20 @@ const App = () => {
     event.target.email.focus();
   }
 
-  // const formStyle = {
-  //     display:"flex",
-  //     flexDirection: "column",
-  //     gap: 10,
-  //     border: "1px solid black",
-  //     padding: "32px"
-  // }
-
-  // inline style
+  
   return (
     <>
     
     <form onSubmit={handleLogin}
-    className="formLogin"
+    className="flex flex-col gap-4 w-100 mx-auto mt-10 bprder 
+    border-gray-300 rounded p-8 shadow-lg"
     >
-     <h1>Login</h1>
-     <div>
+     <h1
+      className="text-2xl font-bold text-center"
+     >Login</h1>
+     <div
+      className="flex flex-col gap-2"
+     >
        <input
        name="email"
       type='email'
@@ -46,10 +42,7 @@ const App = () => {
       value={email}
       onChange={(e) => steEmail(e.target.value)}
       required
-      style={{
-        height: "30px",
-        paddingLeft: "16px"
-      }}
+      className="border border-gray-300 rounded px-3 py-2"
       />
      </div>
 
@@ -61,16 +54,13 @@ const App = () => {
       value={password}
       onChange={(e) => setPassword(e.target.value)}
       required
-       style={{
-        height: "30px",
-        paddingLeft: "16px"
-      }}
+      className="border border-gray-300 rounded px-3 py-2 w-full"
       />
      </div>
 
      <button 
      type="submit"
-     className="btnLogin"
+     className="border border-gray-500 rounded px-3 py-2 w-full"
      >
       Login
      </button>
