@@ -60,7 +60,7 @@ const App = () => {
 
      <button 
      type="submit"
-     className="border border-gray-500 rounded px-3 py-2 w-full"
+     className="bg-yellow-500 rounded px-3 py-2 w-full"
      >
       Login
      </button>
