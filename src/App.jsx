@@ -1,12 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 
 const App = () => {
+ 
+  const [fetchdata, setFetchData] = useState(0);
+
   const recipes = [
     
   ];
 
-  useEffect(() => {
+
+  // this runs first time when the component is rendered
+  // ans every time when the component is re-render ->
+  // whenever any state changes
+  useEffect(() =>{
     fetch('https://69f880fdf7044aa0103df857.mockapi.io/recipes')
     .then((response) => {
       console.log("feching recipis..")
@@ -25,6 +32,7 @@ const App = () => {
   return (
     <>
     <h1>Recipes</h1>
+    <button onClick={() => setFetchData(fetchdata + 1)}>Fetch Data</button>
     <ul>
       {
         recipes
