@@ -16,16 +16,18 @@ const App = () => {
 
   // const list = [<li>recipes</li>] 
 
-  const list = [];
-  recipes.forEach(recipes => {
-    list.push(
-    <li>{recipes}</li>
-  )
-  });
+  
   return (
     <>
     <h1>Recipes</h1>
-    <ul>{list}</ul>
+    <ul>
+      {
+        recipes
+        .map((recipes, index)=>{
+        return <li key={index}>{recipes}</li>
+      })
+      }
+    </ul>
     </>
   )
 }
