@@ -4,11 +4,12 @@ import './App.css'
 const App = () => {
  
   const [fetchdata, setFetchData] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   const recipes = [
   ];
 
-  // useEffect with empty dependency list
+  // useEffect with a dependency list
   // this runs first time when the component is rendered
   // and will not run during component is re-render of the component
   
@@ -22,16 +23,18 @@ const App = () => {
       console.log(data)
     })
     .catch(error => console.log(error))
-  }, []);
+  }, [fetchdata]);
 
-  console.log(JSON.stringify(recipes))
-  // const list = [<li>recipes</li>] 
+  
+  console.log(fetchdata);
+  console.log(counter);
 
   
   return (
     <>
     <h1>Recipes</h1>
-    <button onClick={() => setFetchData(fetchdata + 1)}>Fetch Data</button>
+    <button onClick={() => setFetchData(fetchdata + 1)}>Fetch Data</button> &nbsp;
+    <button onClick={() => setCounter(counter + 1)}>Counter</button>
     <ul>
       {
         recipes
