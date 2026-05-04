@@ -1,35 +1,24 @@
+import { useEffect } from 'react';
 import './App.css'
 
 const App = () => {
   const recipes = [
-     {
-      name: 'Pasta',
-      ingredients: ['Pasta', 'Tomato Sauce', 'Cheese'],
-      author: 'John Doe',
-      cookingTime: '30 minutes',
-      difficulty: 'Easy',
-      isFavourite: true
-      
-    },
-    {
-      name: 'Chicken Curry',
-      ingredients: ['Chicken', 'Curry Powder', 'Coconut Milk'],
-      author: 'Jane Smith',
-      cookingTime: '45 minutes',
-      difficulty: 'Medium',
-      isFavourite: false
-  
-    },
-    {
-      name: 'Chocolate Cake',
-      ingredients: ['Flour', 'Sugar', 'Cocoa Powder', 'Eggs'],
-      author: 'Emily Johnson',
-      cookingTime: '1 hour',
-      difficulty: 'Hard',
-      isFavourite: true
-  
-    }
+    
   ];
+
+  useEffect(() => {
+    fetch('https://69f880fdf7044aa0103df857.mockapi.io/recipes')
+    .then((response) => {
+      console.log("feching recipis..")
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data)
+    })
+    .catch(error => console.log(error))
+  })
+
+  console.log(JSON.stringify(recipes))
   // const list = [<li>recipes</li>] 
 
   
