@@ -6,13 +6,12 @@ const App = () => {
   const [fetchdata, setFetchData] = useState(0);
 
   const recipes = [
-    
   ];
 
-
+  // useEffect with empty dependency list
   // this runs first time when the component is rendered
-  // ans every time when the component is re-render ->
-  // whenever any state changes
+  // and will not run during component is re-render of the component
+  
   useEffect(() =>{
     fetch('https://69f880fdf7044aa0103df857.mockapi.io/recipes')
     .then((response) => {
@@ -23,7 +22,7 @@ const App = () => {
       console.log(data)
     })
     .catch(error => console.log(error))
-  })
+  }, []);
 
   console.log(JSON.stringify(recipes))
   // const list = [<li>recipes</li>] 
