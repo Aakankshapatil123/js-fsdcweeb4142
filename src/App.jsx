@@ -3,11 +3,7 @@ import './App.css'
 
 const App = () => {
  
-  const [fetchdata, setFetchData] = useState(0);
-  const [counter, setCounter] = useState(0);
-
-  const recipes = [
-  ];
+  const [recipes, setRecipes] = useState([]);
 
   // useEffect with a dependency list
   // this runs first time when the component is rendered
@@ -16,25 +12,17 @@ const App = () => {
   useEffect(() =>{
     fetch('https://69f880fdf7044aa0103df857.mockapi.io/recipes')
     .then((response) => {
-      console.log("feching recipis..")
       return response.json();
     })
     .then((data) => {
-      console.log(data)
+      setRecipes(data)
     })
     .catch(error => console.log(error))
-  }, [fetchdata]);
+  }, []);
 
-  
-  console.log(fetchdata);
-  console.log(counter);
-
-  
   return (
     <>
     <h1>Recipes</h1>
-    <button onClick={() => setFetchData(fetchdata + 1)}>Fetch Data</button> &nbsp;
-    <button onClick={() => setCounter(counter + 1)}>Counter</button>
     <ul>
       {
         recipes
