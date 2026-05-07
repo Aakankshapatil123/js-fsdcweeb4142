@@ -109,3 +109,7 @@ side effects can include things like fetching data from an API, subscribing to e
  1. Without dependencies: The effect will run after every render.
  2. With an empty dependency array: The effect will run only once, after   the initial render.
  3. With specific dependencies: The effect will run only when the specified dependencies change.
+
+
+## Axios
+Axios is a popular JavaScript library used to make HTTP requests from the browser or Node.js.
