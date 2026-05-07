@@ -4,13 +4,13 @@ const App = () => {
 
   const [count, setCount] = useState(0);
 
-  // 1.without dependancy list
+  // 1.with empty dependancy list
  useEffect(() => {
-  // this will happen whenever the component is rendered or re-rendered
+  // run when the component is rendered for the first time alone.
    fetch('https://69fc3366fce564e259176e6d.mockapi.io/todos')
   .then(response => response.json())
   .then(todos => console.log(todos));
- })
+ },[])
 
   return (
     <>
