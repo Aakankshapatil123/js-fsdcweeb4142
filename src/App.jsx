@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import Todo from './components/Todo';
 
 const App = () => {
 
@@ -20,9 +21,12 @@ const App = () => {
      <ul>
       {
         todos
-        .map(todo =>(
-          <li key={todo.id}>{todo.title}</li>
-        ))
+        .map(todo =>{
+          return <Todo 
+          key={todo.id}
+          todo={todo}
+          />
+        })
       }
      </ul>
     </>
