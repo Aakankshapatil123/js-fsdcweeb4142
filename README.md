@@ -100,4 +100,12 @@ Uncontrolled Input: An uncontrolled input is an input element that manages its o
 ## useEffect Hook
 The useEffect hook is used to perform side effects in functional components. It allows you to run code after the component has rendered, and it can be used for tasks such as fetching data, subscribing to events, or manipulating the DOM.
 
+useEffect is a hook in React that allows you to perform side effects in function components. It serves the same purpose as lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount in class components.
+side effects can include things like fetching data from an API, subscribing to events, or manually manipulating the DOM.
 
+
+
+## The ways to use useEffect:
+ 1. Without dependencies: The effect will run after every render.
+ 2. With an empty dependency array: The effect will run only once, after   the initial render.
+ 3. With specific dependencies: The effect will run only when the specified dependencies change.
