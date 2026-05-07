@@ -19,19 +19,24 @@
 
 
 // normal variable 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const App = () => {
  
-  let count = 0;
+  const [count, setCount] = useState(0);
   const [state, setState] = useState(true);
 
   const handleCount = () => {
-    count = count + 1;
+    setCount(count + 1)
     console.log(count);
   }
-  console.log('current state : ${state}')
+  
+
+
+  useEffect(() => {
+   console.log(`current state: ${state}`)
+  },[state])
   
 
   return (
