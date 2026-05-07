@@ -1,28 +1,45 @@
-import { useReducer, useState } from "react";
+// import { useState } from "react";
 
-  const reducer = (state, action) => {
-  switch(action.type){
-    case 'LIKE':
-      return state + 1;
-    case 'DISLIKE':
-      return state -1;
-    case 'GOLDEN_LIKE':
-      return state + action.payload;
-      default:
-        return state;
-  }
-  }
+
+// const App = () => {
+ 
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <>
+//      <h1>Count: {count}</h1>
+//      <button onClick={() => setCount(count + 1)}>inc</button>
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+
+
+// normal variable 
+import { useState } from "react";
+
 
 const App = () => {
+ 
+  let count = 0;
+  const [state, setState] = useState(true);
 
-  const [likes, setLikes] = useReducer(reducer, 0)
+  const handleCount = () => {
+    count = count + 1;
+    console.log(count);
+  }
+  console.log('current state : ${state}')
+  
 
   return (
     <>
-    <h1>Like: {likes}</h1>
-    <button onClick={() => setLikes({type: 'LIKE'})}>Like</button> &nbsp;
-    <button onClick={() => setLikes({type: 'DISLIKE'})}>Dislike</button> &nbsp;
-    <button onClick={() => setLikes({type: 'GOLDEN_LIKE', payload: 100})}>Golden like</button>
+     <h1>Count: {count}</h1>
+     <button onClick={handleCount}>inc</button> &nbsp;
+     <button onClick={() => setState(!state)}>Chage State</button>
+
     </>
   )
 }
