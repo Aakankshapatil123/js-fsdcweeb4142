@@ -19,17 +19,17 @@
 
 
 // normal variable 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 const App = () => {
  
-  const [count, setCount] = useState(0);
+  const count = useRef(0);
   const [state, setState] = useState(true);
 
   const handleCount = () => {
-    setCount(count + 1)
-    console.log(count);
+    count.current= count.current + 1;
+    console.log(count.current);
   }
   
 
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <>
-     <h1>Count: {count}</h1>
+     <h1>Count: {count.current}</h1>
      <button onClick={handleCount}>inc</button> &nbsp;
      <button onClick={() => setState(!state)}>Chage State</button>
 
