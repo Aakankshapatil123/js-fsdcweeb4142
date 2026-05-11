@@ -2,7 +2,7 @@
 
 const Todo = ({todo}) => {
   return (
-    <li>{todo.tile}</li>
+    <li>{todo.title}</li>
   )
 }
 
