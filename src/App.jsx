@@ -1,36 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import Todo from './components/Todo';
+import { createBrowserRouter, RouterProvider } from "react-router";
+
+// 1. create a router object
+const router = createBrowserRouter([
+  // each route as an object
+  {
+    path: '/', // this represents localhost:5173/
+    element: <h1>Home Page</h1>
+  },
+  {
+    path: '/code-kata',
+    element: <h1>Code Kata Page</h1>
+  },
+  {
+    path: '/sqlkata',
+    element: <h1>SQL Kata Page</h1>
+  }
+]);
 
 const App = () => {
-
-  const [todos, setTodos] = useState([])
-
-  // 1.with dependancy list
- useEffect(() => {
-  // run when the component is rendered or re-renderd when the specified dependencies.
-   axios.get('https://69fc3366fce564e259176e6d.mockapi.io/todos')
-  .then(reponse => setTodos(reponse.data));
- },[]);
-
-
-//  console.log(count1);
   return (
-    <>
-    <h1>Todes</h1>
-     <ul>
-      {
-        todos
-        .map(todo =>{
-          return <Todo 
-          key={todo.id}
-          todo={todo}
-          />
-        })
-      }
-     </ul>
-    </>
+    <RouterProvider
+      router={router}
+    />
   )
 }
 
-export default App
+export default App;
