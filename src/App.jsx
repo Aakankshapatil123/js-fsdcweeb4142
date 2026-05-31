@@ -1,7 +1,11 @@
+import Child1 from "./components/Child1";
+
 const App = () => {
+  const message = "hello from App component;"
+
   return (
     <div>
-      App
+      <Child1 message={message}/>
     </div>
   )
 }
