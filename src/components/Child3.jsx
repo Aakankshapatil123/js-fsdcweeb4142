@@ -1,9 +1,14 @@
-const Child3 = ({message}) => {
-    // child component that neets the data from App
+import { useContext } from "react";
+import { MessageContext } from "../App";
+
+const Child3 = () => {
+    // child3 component which needs the data from App component
+    const message = useContext(MessageContext);
     console.log(message)
+
   return (
     <div>
-      {message}
+      Child3
     </div>
   )
 }
