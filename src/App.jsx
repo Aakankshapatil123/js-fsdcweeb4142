@@ -1,47 +1,61 @@
-
-import { createBrowserRouter, RouterProvider } from "react-router";
-import Todos from "./components/Todos";
-import Home from "./pages/Home";
-import HomeWrapper from "./wrappers/HomeWrapper";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-
-
-
-
-// create router
-const router = createBrowserRouter([
-{
-  path:"/",
-  element: <HomeWrapper />,
-  children: [
-    {
-      path: '',
-      element: <Home />
-    },
-    {
-      path:'/register',
-      element: <Register />
-    },
-    {
-      path: '/login',
-      element: <Login />
-    }
-  ]
-},
-{
-  path:'/todos',
-  element: <Todos />
-}
-]);
+import { DragDropProvider } from "@dnd-kit/react"
+import { useState } from "react"
+import SortableItem from "./SortableItem"
+import { isSortable } from "@dnd-kit/react/sortable"
 
 const App = () => {
-  return <RouterProvider router={router}/>
+
+  const [items, setItems] = useState([
+    {id: 1, content: "Apple"},
+    {id: 2, content: "Banana"},
+    {id: 3, content: "Cherry"},
+    {id: 4, content: "Orenge"},
+    {id: 5, content: "Grapes"}
+  ])
+  return (
+    <div>
+      <h1>Fruites</h1>
+      <DragDropProvider
+      onDragEnd={
+        (event) => {
+          if(event.canceled) return;
+
+          const {source} = event.operation;
+
+          if(isSortable(source)) {
+            const {intialIndex, index} = source;
+
+            if(intialIndex !== index){
+              setItems((items) => {
+                const newItems = [...items];
+
+                const [removed] = newItems.splice
+                (intialIndex, 1);
+                newItems.splice(index, 0, removed)
+
+                return newItems;
+              })
+            }
+          }
+        }
+      }
+      >
+        <ul>
+        {
+          items.map((item,index) => (
+            <SortableItem
+            key={item.id}
+            id={item.id}
+            index={index}
+            >
+              {item.content}
+            </SortableItem>
+          ))
+        }
+      </ul>
+      </DragDropProvider>
+    </div>
+  )
 }
 
-
-
-export default App;
-
-
-
+export default App
