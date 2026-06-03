@@ -1,25 +1,22 @@
-import { createContext, useReducer, useState } from "react";
-import Reaction from "./components/Reaction";
+import { useContext } from "react";
+import { ReactionsContext } from "./contexts/ReactionsStore";
 
-const reducer = (state, action) => {
-  // the current state is in -> state
-  // has to return the new state
-  if(action.type === "LIKE"){
-    // we know that the like buttoon is clicked
-    // so we want to increace the current state by 1 retun it
-    return state + 1
-  }
-
-}
- export const ReactionContext = createContext();
 const App = () => {
-  
-  const [likes, setLikes] = useReducer(reducer, 0);
+
+  // use the context to get the state and dispatch function
+  const { likes, setLikes } = useContext(ReactionsContext);
+
+  const { user, setUser } = useContext(ReactionsContext);
+
+  console.log(user);
 
   return (
-    <ReactionContext.Provider value={{likes, setLikes}}>
-      <Reaction />
-    </ReactionContext.Provider>
+    <div>
+      <h1>Likes: { likes }</h1>
+      <button onClick={() => setLikes({ 
+        type: "LIKE"
+      })}>Like</button>
+    </div>
   )
 }
 
