@@ -12,12 +12,16 @@ export const reactionSlice = createSlice({
     reducers: {
         setLikes: (state, action) => {
             state.likes = state.likes + 1;
+        },
+
+        setDislikes: (state, action) => {
+            state.likes = state.likes - 1;
         }
     }
 });
 
 // export the action
-export const {setLikes} = reactionSlice.actions;
+export const {setLikes, setDislikes} = reactionSlice.actions;
 
 //export the selector
 export const selectLikes = (state) => state.reaction.likes;

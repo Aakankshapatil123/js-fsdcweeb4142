@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { selectLikes, setLikes } from "./redux/feature/reactionSlice"
+import { selectLikes, setDislikes, setLikes } from "./redux/feature/reactionSlice"
 
 const App = () => {
   const likes = useSelector(selectLikes);
@@ -9,10 +9,17 @@ const App = () => {
     dispatch(setLikes());
   }
 
+  const handleDislike = () => {
+    dispatch(setDislikes())
+  }
+
+
+
   return (
      <div>
      <h1>Like:{likes}</h1>
-     <button onClick={handleLikes}>Like</button> 
+     <button onClick={handleLikes}>Like</button> &nbsp;
+     <button onClick={handleDislike}>Dislike</button>
     </div>
   )
 }
