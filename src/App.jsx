@@ -1,36 +1,36 @@
-import { useDispatch, useSelector } from "react-redux"
-import { selectDislikes, selectLikes, selectReactions, setDislikes, setLikes, setReactions,   } from "./redux/feature/reactionSlice"
+import { createBrowserRouter, RouterProvider } from "react-router"
+import Home from "./pages/Home"
+import HomeWrapper from "./wrappers/HomeWrapper"
+import Register from "./pages/Register"
+import Login from "./pages/Login"
+
+const router = createBrowserRouter([
+  {
+    path: "/" ,
+    element:<HomeWrapper />,
+    children:[
+      {
+       path:"/",
+       element:<Home />
+      },
+
+      {
+        path:"/register",
+        element:<Register />
+      },
+
+      {
+        path:"/login",
+        element:<Login />
+      }
+    ] 
+  }
+])
 
 const App = () => {
-  const likes = useSelector(selectLikes);
-  const dispatch = useDispatch();
+  return <RouterProvider router={router}>
 
-  const Dislikes = useSelector(selectDislikes);
-
-  const Reaction = useSelector(selectReactions);
-
-  const handleLikes = () => {
-    dispatch(setLikes());
-    dispatch(setReactions('LIKE'));
-  }
-
-  const handleDislike = () => {
-    dispatch(setDislikes());
-    dispatch(setReactions('DISLIKE'));
-  }
-
-
-
-  return (
-     <div>
-     <h1>Like:{likes}</h1>
-     <button onClick={handleLikes}>Like</button> &nbsp;
-     <h1>Dislike: {Dislikes}</h1>
-     <button onClick={handleDislike}>Dislike</button>
-
-     <h1>Reactions: {Reaction.join(', ')}</h1>
-    </div>
-  )
+  </RouterProvider>
 }
 
 export default App
