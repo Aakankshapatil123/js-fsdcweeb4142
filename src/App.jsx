@@ -5,6 +5,8 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import { Provider } from "react-redux"
 import store from "./redux/app/store"
+import DashboardWrapper from "./wrappers/DashboardWrapper"
+import Dashboard from "./pages/Dashboard"
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,17 @@ const router = createBrowserRouter([
         element:<Login />
       }
     ] 
+  },
+
+  {
+    path:"/",
+    element:<DashboardWrapper />,
+    children: [
+      {
+        path:"/dashboard",
+        element:<Dashboard />
+      }
+    ]
   }
 ])
 
