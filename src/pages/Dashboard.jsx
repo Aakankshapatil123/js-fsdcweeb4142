@@ -1,7 +1,10 @@
+import { Outlet } from "react-router";
+
 const Dashboard = () => {
   return (
     <div>
       <h1>Wlcome to dashboard!</h1>
+      <Outlet />
     </div>
   )
 }
