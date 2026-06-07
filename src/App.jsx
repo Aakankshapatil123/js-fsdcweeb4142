@@ -8,6 +8,7 @@ import store from "./redux/app/store"
 import DashboardWrapper from "./wrappers/DashboardWrapper"
 import Dashboard from "./pages/Dashboard"
 import Notes from "./pages/Notes"
+import Note from "./pages/Nodes"
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"/",
+    path:"",
     element:<DashboardWrapper />,
     children: [
       {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
           {
             path:"",
             element:<Notes />
+          },
+          {
+            path:"notes/:id",
+            element: <Note />
           }
         ]
       }
