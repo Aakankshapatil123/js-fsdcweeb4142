@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import instance from '../instances/instance';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectNodes, setNodes } from '../redux/features/notesSlice';
+import nodeServices from '../services/nodeServices';
 
 const Nodes = () => {
    const { id } = useParams();
@@ -11,10 +12,18 @@ const Nodes = () => {
    const dispatch =  useDispatch();
    const navigate = useNavigate();
 
+   const fetchNodes = async () => {
+    try {
+      const responce = await  nodeServices.getNodesById();
+    dispatch(setNodes(responce.data))
+    }catch(error) {
+      dispatch(setNodes([]));
+    }
+    
+   }
+
    useEffect(() => {
-     instance
-     .get(`/notes/${id}`)
-     .then (response => dispatch(setNodes(response.data)))
+    fetchNodes();
    },[])
 
    const handleBack = (e) => {

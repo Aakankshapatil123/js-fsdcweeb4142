@@ -4,21 +4,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectNotes, setNotes } from "../redux/features/notesSlice";
 import instance from "../instances/instance";
 import { Link } from "react-router";
+import nodeServices from "../services/nodeServices";
 
 const Notes = () => {
 
   const notes = useSelector(selectNotes)
   const dispatch = useDispatch();
 
- useEffect(() => {
-      
-  instance
-  .get("/notes")
-  .then (response => {
-    dispatch(setNotes(response.data));
+  const fetchNotes = async () => {
+   try {
+    const responce = await nodeServices.getNotes();
+    dispatch(setNotes(responce.data))
+   }catch(error) {
+    dispatch(setNotes(null))
+   }
+  }
 
-  });
- }, []);
+ useEffect(() => {
+      fetchNotes();
+  }, []);
   return (
     <div>
       <ul>
