@@ -32,7 +32,7 @@ const Nodes = () => {
           <p style={{color: "red"}}>{noteerror}</p>
         ): note ? (
           <div>
-            <h2>{note.description}</h2>
+            <h3>{note.description}</h3>
             <p>Created At: {note.createdAt}</p>
           </div>
         ): (<p>No note found</p>)
